@@ -1,0 +1,11 @@
+﻿$HEADER$namespace $NAMESPACE$
+{  
+    public static class $CLASS$
+    {
+        public static string Method1(this string input)
+        {
+            // do something to the input
+            return input;
+        }
+    }
+}
