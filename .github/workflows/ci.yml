@@ -3,16 +3,16 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-    - master
+    - main
   
 env:
   NETCORE_VERSION: '3.1.402'
-  GIT_REPO_ROOT: src
+  GIT_REPO_ROOT: src/Snippets
   SOLUTION_FILE: Snippets.sln
-  UNITTEST_PROJECT_PATH: Snippets/Snippets.UnitTests/Snippets.UnitTests.csproj
+  UNITTEST_PROJECT_PATH: Snippets.UnitTests/Snippets.UnitTests.csproj
 
 jobs:
     build:
@@ -30,3 +30,6 @@ jobs:
         - name: Build app
           working-directory: ${{ env.GIT_REPO_ROOT }}
           run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Debug --no-restore
+        - name: Run Unit Tests
+          working-directory: ${{ env.GIT_REPO_ROOT }}
+          run: dotnet test ${{ env.UNITTEST_PROJECT_PATH }} --no-build --collect:"XPlat Code Coverage"
