@@ -12,7 +12,7 @@ env:
   NETCORE_VERSION: '3.1.402'
   GIT_REPO_ROOT: src/Snippets
   SOLUTION_FILE: Snippets.sln
-  UNITTEST_PROJECT_PATH: Snippets/Snippets.UnitTests/Snippets.UnitTests.csproj
+  UNITTEST_PROJECT_PATH: Snippets.UnitTests/Snippets.UnitTests.csproj
 
 jobs:
     build:
